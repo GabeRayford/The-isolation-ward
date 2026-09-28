@@ -1,0 +1,286 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww29200\viewh17840\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+Your Cloud Platform project in this session is set to project-c1a05de0-ba4b-4764-93a.\
+Use `gcloud config set project [PROJECT_ID]` to change to a different project.\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks create vpc-alpha --subnet-mode=custom\
+^[[CCreated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha].\
+^[[DNAME: vpc-alpha\
+SUBNET_MODE: CUSTOM\
+BGP_ROUTING_MODE: REGIONAL\
+IPV4_RANGE: \
+GATEWAY_IPV4: \
+INTERNAL_IPV6_RANGE: \
+\
+Instances on this network will not be reachable until firewall rules\
+are created. As an example, you can allow all internal traffic between\
+instances as well as SSH, RDP, and ICMP by running:\
+\
+$ gcloud compute firewall-rules create <FIREWALL_NAME> --network vpc-alpha --allow tcp,udp,icmp --source-ranges <IP_RANGE>\
+$ gcloud compute firewall-rules create <FIREWALL_NAME> --network vpc-alpha --allow tcp:22,tcp:3389,icmp\
+\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks create vpc-omega --subnet-mode=custom\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega].\
+NAME: vpc-omega\
+SUBNET_MODE: CUSTOM\
+BGP_ROUTING_MODE: REGIONAL\
+IPV4_RANGE: \
+GATEWAY_IPV4: \
+INTERNAL_IPV6_RANGE: \
+\
+Instances on this network will not be reachable until firewall rules\
+are created. As an example, you can allow all internal traffic between\
+instances as well as SSH, RDP, and ICMP by running:\
+\
+$ gcloud compute firewall-rules create <FIREWALL_NAME> --network vpc-omega --allow tcp,udp,icmp --source-ranges <IP_RANGE>\
+$ gcloud compute firewall-rules create <FIREWALL_NAME> --network vpc-omega --allow tcp:22,tcp:3389,icmp\
+\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks subnets create subnet-alpha \\\
+> \
+.bash_history              .bashrc                    .config/                   .gemini/                   .profile                   .sudo_as_admin_successful\
+.bash_logout               .cache/                    .docker/                   .npm/                      README-cloudshell.txt      \
+> \
+.bash_history              .bashrc                    .config/                   .gemini/                   .profile                   .sudo_as_admin_successful\
+.bash_logout               .cache/                    .docker/                   .npm/                      README-cloudshell.txt      \
+> gcloud compute networks subnets create subnet-alpha \\\
+    --network=vpc-alpha \\\
+    --region=us-central1 \\\
+    --range=10.10.0.0/24\
+ERROR: (gcloud.compute.networks.subnets.create) unrecognized arguments:\
+  gcloud\
+  compute\
+  networks\
+  subnets\
+  create\
+  subnet-alpha\
+  To search the help text of gcloud commands, run:\
+  gcloud help -- SEARCH_TERMS\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks subnets create subnet-alpha \\\
+    --network=vpc-alpha \\\
+    --region=us-central1 \\\
+    --range=10.10.0.0/24\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-alpha].\
+NAME: subnet-alpha\
+REGION: us-central1\
+NETWORK: vpc-alpha\
+RANGE: 10.10.0.0/24\
+STACK_TYPE: IPV4_ONLY\
+IPV6_ACCESS_TYPE: \
+INTERNAL_IPV6_PREFIX: \
+EXTERNAL_IPV6_PREFIX: \
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks subnets create subnet-omega \\\
+    --network=vpc-omega \\\
+    --region=us-central1 \\\
+    --range=10.20.0.0/24\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-omega].\
+NAME: subnet-omega\
+REGION: us-central1\
+NETWORK: vpc-omega\
+RANGE: 10.20.0.0/24\
+STACK_TYPE: IPV4_ONLY\
+IPV6_ACCESS_TYPE: \
+INTERNAL_IPV6_PREFIX: \
+EXTERNAL_IPV6_PREFIX: \
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute instances create vm-alphab \\ --zone=us-central1-a \\ --machine-type=e2-micro \\ --subnet=subnet-alpha \\ --tags=alpha-nodes\
+Did you mean zone [us-central1-b] for instance: [vm-alphab,  --zone=us-central1-a,  --machine-type=e2-micro,  --subnet=subnet-alpha,  --tags=alpha-nodes] (Y/n)?  y\
+\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/zones/us-central1-b/instances/vm-alphab].\
+ERROR: (gcloud.compute.instances.create) Could not fetch resource:\
+ - Invalid value for field 'resource.name': ' --machine-type=e2-micro'. Must be a match of regex '(?:[a-z](?:[-a-z0-9]\{0,61\}[a-z0-9])?)'\
+ - Invalid value for field 'resource.name': ' --subnet=subnet-alpha'. Must be a match of regex '(?:[a-z](?:[-a-z0-9]\{0,61\}[a-z0-9])?)'\
+ - Invalid value for field 'resource.name': ' --tags=alpha-nodes'. Must be a match of regex '(?:[a-z](?:[-a-z0-9]\{0,61\}[a-z0-9])?)'\
+ - Invalid value for field 'resource.name': ' --zone=us-central1-a'. Must be a match of regex '(?:[a-z](?:[-a-z0-9]\{0,61\}[a-z0-9])?)'\
+\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute instances create vm-alpha \\\
+    --zone=us-central1-a \\\
+    --machine-type=e2-micro \\\
+    --subnet=subnet-alpha \\\
+    --tags=alpha-nodes\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/zones/us-central1-a/instances/vm-alpha].\
+NAME: vm-alpha\
+ZONE: us-central1-a\
+MACHINE_TYPE: e2-micro\
+PREEMPTIBLE: \
+INTERNAL_IP: 10.10.0.2\
+EXTERNAL_IP: 35.226.247.237\
+STATUS: RUNNING\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute instances create vm-omega \\\
+    --zone=us-central1-a \\\
+    --machine-type=e2-micro \\\
+    --subnet=subnet-omega \\\
+    --tags=omega-nodes\
+Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/zones/us-central1-a/instances/vm-omega].\
+NAME: vm-omega\
+ZONE: us-central1-a\
+MACHINE_TYPE: e2-micro\
+PREEMPTIBLE: \
+INTERNAL_IP: 10.20.0.2\
+EXTERNAL_IP: 34.72.64.193\
+STATUS: RUNNING\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks peerings create alpha-to-omega \\\
+    --network=vpc-alpha \\\
+    --peer-network=vpc-omega\
+Updated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha].\
+---\
+autoCreateSubnetworks: false\
+creationTimestamp: '2026-09-27T16:22:51.329-07:00'\
+id: '4094216327128161188'\
+kind: compute#network\
+name: vpc-alpha\
+networkFirewallPolicyEnforcementOrder: AFTER_CLASSIC_FIREWALL\
+peerings:\
+- autoCreateRoutes: true\
+  exchangeSubnetRoutes: true\
+  exportCustomRoutes: false\
+  exportSubnetRoutesWithPublicIp: true\
+  importCustomRoutes: false\
+  importSubnetRoutesWithPublicIp: false\
+  name: alpha-to-omega\
+  network: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega\
+  stackType: IPV4_ONLY\
+  state: INACTIVE\
+  stateDetails: '[2026-09-27T16:33:58.987-07:00]: Waiting for peer network to connect.'\
+  updateStrategy: INDEPENDENT\
+routingConfig:\
+  bgpBestPathSelectionMode: LEGACY\
+  routingMode: REGIONAL\
+selfLink: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha\
+selfLinkWithId: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/4094216327128161188\
+subnetworks:\
+- https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-alpha\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute networks peerings create omega-to-alpha \\\
+    --network=vpc-omega \\\
+    --peer-network=vpc-alpha\
+Updated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega].\
+---\
+autoCreateSubnetworks: false\
+creationTimestamp: '2026-09-27T16:24:07.577-07:00'\
+id: '5258028730631330680'\
+kind: compute#network\
+name: vpc-omega\
+networkFirewallPolicyEnforcementOrder: AFTER_CLASSIC_FIREWALL\
+peerings:\
+- autoCreateRoutes: true\
+  connectionStatus:\
+    trafficConfiguration:\
+      exportCustomRoutesToPeer: false\
+      exportSubnetRoutesWithPublicIpToPeer: false\
+      importCustomRoutesFromPeer: false\
+      importSubnetRoutesWithPublicIpFromPeer: false\
+      stackType: IPV4_ONLY\
+    updateStrategy: INDEPENDENT\
+  exchangeSubnetRoutes: true\
+  exportCustomRoutes: false\
+  exportSubnetRoutesWithPublicIp: true\
+  importCustomRoutes: false\
+  importSubnetRoutesWithPublicIp: false\
+  name: omega-to-alpha\
+  network: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha\
+  stackType: IPV4_ONLY\
+  state: ACTIVE\
+  stateDetails: '[2026-09-27T16:34:25.237-07:00]: Connected.'\
+  updateStrategy: INDEPENDENT\
+routingConfig:\
+  bgpBestPathSelectionMode: LEGACY\
+  routingMode: REGIONAL\
+selfLink: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega\
+selfLinkWithId: https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/5258028730631330680\
+subnetworks:\
+- https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-omega\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ # Allow VM-Alpha to ping VM-Omega\
+gcloud compute firewall-rules create allow-alpha-to-omega \\\
+    --network=vpc-omega \\\
+    --allow=icmp \\\
+    --direction=INGRESS \\\
+    --source-tags=alpha-nodes \\\
+    --target-tags=omega-nodes\
+Creating firewall...working..Created [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/firewalls/allow-alpha-to-omega].                          \
+Creating firewall...done.                                                                                                                                                            \
+NAME: allow-alpha-to-omega\
+NETWORK: vpc-omega\
+DIRECTION: INGRESS\
+PRIORITY: 1000\
+ALLOW: icmp\
+DENY: \
+DISABLED: False\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute ssh vm-alpha --zone=us-central1-a\
+# Inside VM-Alpha, run:\
+ping -c 3 10.20.0.2\
+WARNING: The private SSH key file for gcloud does not exist.\
+WARNING: The public SSH key file for gcloud does not exist.\
+WARNING: You do not have an SSH key for gcloud.\
+WARNING: SSH keygen will be executed to generate a key.\
+This tool needs to create the directory [/home/g_rayford2121/.ssh] before being able to generate SSH keys.\
+\
+Do you want to continue (Y/n)?  y\
+\
+Generating public/private rsa key pair.\
+Enter passphrase (empty for no passphrase): \
+Enter same passphrase again: \
+Your identification has been saved in /home/g_rayford2121/.ssh/google_compute_engine\
+Your public key has been saved in /home/g_rayford2121/.ssh/google_compute_engine.pub\
+The key fingerprint is:\
+SHA256:Kz+P1drTDc6Npene/3ma52CDp2N7oyX0qTselqZ0EpI g_rayford2121@cs-889799665151-default\
+The key's randomart image is:\
++---[RSA 3072]----+\
+|                 |\
+|                 |\
+|                 |\
+|         .       |\
+|        E . .    |\
+|         o + +...|\
+|      . . + X+OO |\
+|       o.+ O=OX=*|\
+|        oo+oO@=*O|\
++----[SHA256]-----+\
+Updating project ssh metadata...working..Updated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a].                                                    \
+Updating project ssh metadata...done.                                                                                                                                                \
+Waiting for SSH key to propagate.\
+ssh: connect to host 35.226.247.237 port 22: Connection timed out\
+ERROR: (gcloud.compute.ssh) Could not SSH into the instance.  It is possible that your SSH key has not propagated to the instance yet. Try running this command again.  If you still cannot connect, verify that the firewall and instance are set to accept ssh traffic.\
+PING 10.20.0.2 (10.20.0.2) 56(84) bytes of data.\
+\
+--- 10.20.0.2 ping statistics ---\
+3 packets transmitted, 0 received, 100% packet loss, time 2087ms\
+\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute ssh vm-omega --zone=us-central1-a\
+# Inside VM-Omega, run:\
+ping -c 3 10.10.0.2\
+ssh: connect to host 34.72.64.193 port 22: Connection timed out\
+\
+Recommendation: To check for possible causes of SSH connectivity issues and get\
+recommendations, rerun the ssh command with the --troubleshoot option.\
+\
+gcloud compute ssh vm-omega --project=project-c1a05de0-ba4b-4764-93a --zone=us-central1-a --troubleshoot\
+\
+Or, to investigate an IAP tunneling issue:\
+\
+gcloud compute ssh vm-omega --project=project-c1a05de0-ba4b-4764-93a --zone=us-central1-a --troubleshoot --tunnel-through-iap\
+\
+ERROR: (gcloud.compute.ssh) [/usr/bin/ssh] exited with return code [255].\
+PING 10.10.0.2 (10.10.0.2) 56(84) bytes of data.\
+\
+--- 10.10.0.2 ping statistics ---\
+3 packets transmitted, 0 received, 100% packet loss, time 2035ms\
+\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ gcloud compute instances delete vm-alpha vm-omega --zone=us-central1-a --quiet\
+gcloud compute networks peerings delete alpha-to-omega --network=vpc-alpha --quiet\
+gcloud compute networks peerings delete omega-to-alpha --network=vpc-omega --quiet\
+gcloud compute firewall-rules delete allow-alpha-to-omega --quiet\
+gcloud compute networks subnets delete subnet-alpha subnet-omega --region=us-central1 --quiet\
+gcloud compute networks delete vpc-alpha vpc-omega --quiet\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/zones/us-central1-a/instances/vm-alpha].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/zones/us-central1-a/instances/vm-omega].\
+Updated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha].\
+Updated [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/firewalls/allow-alpha-to-omega].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-alpha].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/regions/us-central1/subnetworks/subnet-omega].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-alpha].\
+Deleted [https://www.googleapis.com/compute/v1/projects/project-c1a05de0-ba4b-4764-93a/global/networks/vpc-omega].\
+g_rayford2121@cloudshell:~ (project-c1a05de0-ba4b-4764-93a)$ }
