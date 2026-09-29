@@ -1,4 +1,4 @@
-# Project #1 & #2: Multi-VPC Isolation & Bidirectional Network Peering Pipeline
+# Project #1: Multi-VPC Isolation & Bidirectional Network Peering Pipeline
 
 ## 📋 Real-World Operational Scenario
 * **The Business Challenge:** Your organization operates two separate internal application frameworks (Alpha and Omega) that reside in completely isolated custom network environments. To facilitate direct, secure data transfers between them using internal IP paths, you must link the architectures without sending traffic over the vulnerable public internet and without creating a single shared network point of failure.
